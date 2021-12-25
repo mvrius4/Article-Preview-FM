@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+@import "./components/variables";
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: $font;
+    font-size: $fs;
+    main {
+        display: flex;
+        flex-direction: column;
+        max-width: 90%;
+        margin: 1rem;
+        @media (min-width: $size) {
+            flex-direction: row;
+            max-width: 70%;
+            align-items: center;
+        }
+        .image-container {
+            img {
+                max-width: 100%;
+            }            
+        }
+        .main-container {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            h1 { 
+                font-size: 1.5em; 
+                color: $blue900; 
+            }
+            h2 {
+                font-size: 1.2em;
+                color: $blue700;
+                font-weight: 500;
+            }
+            .author {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 .5rem;
+                .author-details {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    z-index: -2;
+                    img {
+                        max-width: 15%;
+                        border-radius: 50%;
+                    }
+                    p { color: $blue900; font-size: $fs; font-weight: 700; }
+                    span { color: $blue500; font-weight: 500;}
+                }
+                .share {
+                    z-index: 1;
+                    background: none;
+                    border: 0;
+                    outline: none;
+                    text-align: center;
+                    &.active {
+                        background: $blue700;
+                        padding: .5rem;
+                        border-radius: 50%;
+                        svg path {
+                            fill: $blue300;
+                        }
+                    }
+                    svg { 
+                        fill: $blue900;
+                        cursor: pointer;
+                    } 
+                }
+            }
+            .popup { 
+                transform: translateY(-4.5rem);
+                width: 100%;
+                background: $blue900;
+                display: none;
+                justify-content: flex-start;
+                gap: 2rem;
+                padding: 1rem;
+                border-radius: 0 0 1rem 1rem;
+                z-index: -1;
+                &.opened {
+                    display: flex;
+                }
+                p { color: $blue500; font-size: 1.2em; letter-spacing: .2rem; } 
+                svg { margin: 0rem .25rem; }
+                @media (min-width: $size) {
+                    position: absolute;
+                    border-radius: 1rem;
+                    justify-content: space-evenly;
+                    width: 15rem;
+                    right: 0;
+                    transform: translateX(-7rem);
+                    z-index: 100;
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        top: 100%;
+                        left: 50%;
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border-width: 15px 15px 0 15px;
+                        border-color: $blue900 transparent transparent transparent;
+                        border-style: solid;
+                        transform: translateX(-50%);
+                      }
+                }
+            }
+            
+        }
+    }
+    .attribution { 
+        text-align: center; 
+        color: $blue700;
+        a {
+            color: $blue900;
+            font-weight: 700;
+            text-decoration: none;
+            &:hover {
+                color: $blue500;
+            }
+        }
+    }
+}
