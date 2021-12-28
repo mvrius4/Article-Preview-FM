@@ -23,7 +23,7 @@ body main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 90%;
+  max-width: 85%;
   margin: 1rem;
 }
 
@@ -33,7 +33,6 @@ body main {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    max-width: 70%;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -58,6 +57,19 @@ body main .main-container {
           justify-content: center;
   gap: 1.5rem;
   padding: 1.5rem;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 800px) {
+  body main .main-container {
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
+    max-height: 250px;
+  }
 }
 
 body main .main-container h1 {
@@ -121,7 +133,7 @@ body main .main-container .author .share {
 
 body main .main-container .author .share.active {
   background: #6d7f97;
-  padding: .5rem;
+  padding: .3rem;
   border-radius: 50%;
 }
 
@@ -135,9 +147,9 @@ body main .main-container .author .share svg {
 }
 
 body main .main-container .popup {
-  -webkit-transform: translateY(-4.5rem);
-          transform: translateY(-4.5rem);
-  width: 100%;
+  position: absolute;
+  bottom: 1em;
+  width: 90%;
   background: #48556a;
   display: none;
   -webkit-box-pack: start;
@@ -167,15 +179,15 @@ body main .main-container .popup svg {
 
 @media (min-width: 800px) {
   body main .main-container .popup {
-    position: absolute;
     border-radius: 1rem;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
     width: 15rem;
+    bottom: 35%;
     right: 0;
-    -webkit-transform: translateX(-7rem);
-            transform: translateX(-7rem);
+    -webkit-transform: translateX(30%);
+            transform: translateX(30%);
     z-index: 100;
   }
   body main .main-container .popup::after {
